@@ -1,0 +1,173 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+html, body {
+    min-height: 100vh;
+}
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to bottom right, #352f44, #dbd8e3);
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    gap: 10px;
+}
+.button-container button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height:100vh;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px,auto) repeat(5,100px);
+}
+
+.calculator-grid > button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none; /* default to none anyways */
+    background-color: rgba(255,255,255,0.75);
+}
+.calculator-grid > button:hover{
+    background-color: rgba(255,255,255,0.9);
+}
+
+/* grid-column: <start-line> / <end-line>;
+start at start-line and end just before the end-line
+span keyword specify how many grid tracks (columns or rows) an element should span across */
+.calculator-grid .size-two{
+    grid-column: span 2;
+}
+
+.calculator-grid .output{
+    grid-column: 1/-1;
+    background-color: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    /* overflow-wrap: break-word;   won't work cuz only takes effect when the text has spaces or breakpoints*/
+    /* anywhere will break mid point */
+    word-break: break-all;
+}
+
+.calculator-grid .output .previous{
+    color: rgba(255,255,255,0.75);
+    font-size: 1.5rem;
+}
+.calculator-grid .output .current{
+    color: white;
+    font-size: 2.5rem;
+}
+
+
+
+
+.timer-mode {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Timer */
+.timer-mode .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid;
+    border-radius: 3rem;
+    padding: 30px;
+    background-color: #e6e6e6;
+}
+.timer-mode .display{
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: monospace;
+    color: #1b1b1b;
+    margin-bottom: 1rem;
+}
+.timer-mode .button-controls button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    margin:0 0.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+.timer-mode .start{
+    background-color: hsl(145, 100%, 40%);
+    color: hsl(145, 100%, 95%);
+}
+.timer-mode .start:hover{
+    background-color: hsl(145, 100%, 30%);
+}
+.timer-mode .stop{
+    background-color: hsl(0,100%,48%);
+    color: hsl(0,100%,95%);
+}
+.timer-mode .stop:hover{
+    background-color: hsl(0,100%,38%);
+}
+.timer-mode .reset{
+    background-color: hsl(39,100%,50%);
+    color: hsl(39,100%,95%);
+}
+.timer-mode .reset:hover{
+    background-color: hsl(39,100%,40%)
+}
+
+/* Timer Calculator */
+.timer-mode .timer-calculator{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,75px);
+    grid-template-rows: minmax(100px,auto) repeat(4,75px);
+    gap: 10px;
+    padding: 20px;
+    background-color: #222831; 
+    border-radius: 10px;
+}
+.timer-mode .timer-calculator > button{
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border: none;
+    background-color: #ed8200;
+    color: #e6e6e6;
+    outline: none; 
+}
+.timer-mode .timer-calculator > button:hover{
+    background-color: rgba(255,255,255,0.9);
+}
+.timer-mode .calc-display{
+    grid-column: 1/-1;
+    background-color: #393e46; 
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-break: break-all;
+    color: #e6e6e6;
+    font-size: 1.25rem;
+}
